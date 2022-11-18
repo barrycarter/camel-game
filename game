@@ -1,0 +1,70 @@
+# Game info
+print("Welcome to camel")
+print("You have stolen a camel too make your way across the great Mobi desert")
+print("The natives are chasing you and want their camel back. Survive and run out the natives")
+
+# Storing values in variables
+miles_travelled = 0
+drinks_canteen = 3
+natives_travelled = -20
+camel_tiredness = 0
+players_thirst = 0
+done = False
+
+# Making the loop
+while not done:
+    print("A. Drink from your canteen")
+    print("B. Ahead moderate speed")
+    print("C. Ahead full speed")
+    print("D. Stop for the night")
+    print("E. Status check")
+    print("F. Quit")
+    user_choice = input("Your choice? ")
+    if user_choice.upper() == "A":
+        if drinks_canteen == 0:
+            print("No drinks in your canteen")
+            user_choice = input("Your choice? ")
+        elif drinks_canteen != 0:
+            drinks_canteen -= 1
+    elif user_choice.upper() == "B":
+        miles_travelled += 7
+        print("Miles travelled:", miles_travelled)
+        players_thirst += 1
+        camel_tiredness += 1
+        natives_travelled += 9
+    elif user_choice.upper == "C":
+        miles_travelled += 15
+        print("Miles travelled:", miles_travelled)
+        players_thirst += 1
+        camel_tiredness += 3
+        natives_travelled += 9
+    elif user_choice.upper() == "D":
+        camel_tiredness = 0
+        print("The camel is happy")
+        natives_travelled += 9
+    elif user_choice.upper() == "E":
+        print("Miles travelled:", miles_travelled)
+        print("Drinks in canteen:", drinks_canteen)
+        print("The natives are", natives_travelled, "behind you")
+    elif user_choice.upper() == "F":
+        print("Game Ends")
+        done = True
+    elif 4 < players_thirst < 6:
+        print("You are thirsty")
+    elif players_thirst > 6:
+        print("You died of thirst")
+        done = True
+    elif 5 < camel_tiredness < 8:
+        print("Your camel is getting tired")
+    elif camel_tiredness > 8:
+        print("Your camel died")
+        done = True
+    elif miles_travelled == natives_travelled:
+        print("The natives caught up")
+        done = True
+    elif miles_travelled > 200:
+        print("You won")
+        done = True
+    elif miles_travelled == natives_travelled + 15:
+        print("The natives are getting close")
+
